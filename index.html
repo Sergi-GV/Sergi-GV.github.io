@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multicines Zamora | Cartelera y Venta de Entradas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- CABECERA CINE -->
+  <header>
+    <div class="header-container">
+      <div class="logo-group">
+        <div class="logo-text">MULTICINES ZAMORA</div>
+        <span class="sub-logo">C.C. Valderaduey — Zamora</span>
+      </div>
+
+      <!-- NAVEGACIÓN DESPLEGABLE -->
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Cartelera</a></li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Películas ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="#">Estrenos de la Semana</a></li>
+              <li><a href="#">Próximamente</a></li>
+              <li><a href="#">Versión Original (VOSE)</a></li>
+              <li><a href="#">Documentales y Eventos</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Promociones ▾</a>
+            <ul class="dropdown-content">
+              <li><a href="#">Miércoles al Cine (Día Espectador)</a></li>
+              <li><a href="#">Cine Sénior (2€)</a></li>
+              <li><a href="#">Bono 5 Entradas</a></li>
+              <li><a href="#">Pack Cumpleaños</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Servicios ▾</a>
+            <ul class="dropdown-content">
+              <li><span class="nav-item-btn" id="btn-portal">Zona Clientes</span></li>
+              <li><a href="#">Alquiler de Salas</a></li>
+              <li><a href="#">Barra & Palomitas</a></li>
+              <li><a href="#">Accesibilidad</a></li>
+            </ul>
+          </li>
+
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BARRA BÚSQUEDA Y SELECCIÓN DE DÍA -->
+  <section class="hero-campus">
+    <div class="hero-content">
+      <h2>CARTELERA DE CINE EN ZAMORA</h2>
+      <p class="hero-subtitle">Selecciona tu película, fecha y compra tus entradas online</p>
+      
+      <div class="search-box">
+        <input type="text" placeholder="Buscar película por título..." id="search-input">
+        <input type="text" placeholder="Código Promocional">
+        <button class="btn-search">Buscar</button>
+      </div>
+
+      <p class="search-info">
+        10 salas digitales con sonido envolvente Dolby Atmos en el Centro Comercial Valderaduey.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EN MOSAICO (GRID DE CARTELES DE PELÍCULAS) -->
+  <main class="mosaic-container">
+    
+    <div class="section-header">
+      <h3>Películas en Cartelera</h3>
+      <span class="results-count">Selecciona una sesión para reservar</span>
+    </div>
+
+    <div class="poster-grid">
+      
+      <!-- CARTEL 1 (MOSAICO) -->
+      <article class="poster-card">
+        <div class="poster-wrapper">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Imagen de la imagen del cartel de cine de la pelicula de ciencia ficcion">
+          <span class="badge-tag">SALA 1 • 148 MIN</span>
+        </div>
+        
+        <div class="poster-info">
+          <div class="card-meta">
+            <span class="status-badge open-access"></span> Estreno Semanal
+          </div>
+          <h4 class="card-title">Misión Interestelar: El Horizonte</h4>
+          <p class="card-authors">Dir: Christopher Nolan</p>
+
+          <div class="showtimes-box">
+            <span class="showtime-btn">17:00</span>
+            <span class="showtime-btn">19:45</span>
+            <span class="showtime-btn">22:30</span>
+          </div>
+
+          <a href="#" class="link-primary">Read more</a>
+        </div>
+      </article>
+
+      <!-- CARTEL 2 (MOSAICO) -->
+      <article class="poster-card">
+        <div class="poster-wrapper">
+          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80" class="card-img" alt="">
+          <span class="badge-tag">SALA 3 • 112 MIN</span>
+        </div>
+
+        <div class="poster-info">
+          <div class="card-meta">
+            <span class="status-badge restricted"></span> Terror / Thriller
+          </div>
+          <h4 class="card-title">El Misterio de la Casa Sombría</h4>
+          <p class="card-authors">Dir: Guillermo del Toro</p>
+
+          <div class="showtimes-box">
+            <span class="showtime-btn">18:15</span>
+            <span class="showtime-btn">20:30</span>
+            <span class="showtime-btn">22:45</span>
+          </div>
+
+          <a href="#" class="link-primary">Read more</a>
+        </div>
+      </article>
+
+      <!-- CARTEL 3 (PDF / PROGRAMACIÓN EN MOSAICO) -->
+      <article class="poster-card special-card">
+        <div class="poster-wrapper pdf-wrapper">
+          <div class="pdf-indicator">
+            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" width="24" height="24" alt="Icono de PDF"> 
+            <span>PROGRAMACIÓN PDF</span>
+          </div>
+        </div>
+
+        <div class="poster-info">
+          <h4 class="card-title card-title-spaced">Cartelera Completa de la Semana</h4>
+          <p class="card-authors">Todos los horarios y próximas novedades en un archivo descargable.</p>
+
+          <a href="https://example.com/pdf" target="_blank" class="link-primary">Download full text PDF</a>
+        </div>
+      </article>
+
+      <!-- CARTEL 4 (MOSAICO) -->
+      <article class="poster-card">
+        <div class="poster-wrapper">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Proyector de cine enfocado a la pantalla gigante del cine de Zamora">
+          <span class="badge-tag">SALA 5 • 125 MIN</span>
+        </div>
+
+        <div class="poster-info">
+          <div class="card-meta">
+            <span class="status-badge open-access"></span> Acción / Policial
+          </div>
+          <h4 class="card-title">Cuestión de Honor: Código de Acción</h4>
+          <p class="card-authors">Dir: Antoine Fuqua</p>
+
+          <div class="showtimes-box">
+            <span class="showtime-btn">16:45</span>
+            <span class="showtime-btn">19:15</span>
+            <span class="showtime-btn">21:50</span>
+          </div>
+
+          <a href="#" class="link-primary">Ver plan de estudios</a>
+        </div>
+      </article>
+
+      <!-- CARTEL 5 (MOSAICO) -->
+      <article class="poster-card">
+        <div class="poster-wrapper">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Butacas rojas del auditorio principal de los multicines">
+          <span class="badge-tag">SALA 2 • 105 MIN</span>
+        </div>
+
+        <div class="poster-info">
+          <div class="card-meta">
+            <span class="status-badge restricted"></span> Comedia Romántica
+          </div>
+          <h4 class="card-title">Bajo el Sol de Zamora</h4>
+          <p class="card-authors">Dir: Icíar Bollaín</p>
+
+          <div class="showtimes-box">
+            <span class="showtime-btn">17:30</span>
+            <span class="showtime-btn">20:00</span>
+          </div>
+
+          <a href="#" class="link-primary">Consultar guías docentes</a>
+        </div>
+      </article>
+
+      <!-- CARTEL 6 (MOSAICO) -->
+      <article class="poster-card">
+        <div class="poster-wrapper">
+          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Entradas de cine y palomitas sobre el mostrador de recepción">
+          <span class="badge-tag">SALA 4 • VOSE</span>
+        </div>
+
+        <div class="poster-info">
+          <div class="card-meta">
+            <span class="status-badge open-access"></span> Ciclo Cine Clásico
+          </div>
+          <h4 class="card-title">Casablanca (Edición Remasterizada 4K)</h4>
+          <p class="card-authors">Dir: Michael Curtiz</p>
+
+          <div class="showtimes-box">
+            <span class="showtime-btn">20:15 (VOSE)</span>
+          </div>
+
+          <a href="#" class="link-primary">Solicitar admisión</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- SECCIÓN DE COMPRA / FORMULARIO E INSTRUCCIONES -->
+    <div class="mosaic-footer-grid">
+      
+      <section class="newsletter-box">
+        <h6>Venta de Entradas y Boletín de Estrenos</h6>
+        <p>Recibe la cartelera semanal en tu correo y asegura tus butacas preferidas.</p>
+        
+        <form id="newsletter-form">
+          <p><span class="required-mark">*</span> Campos obligatorios:</p>
+
+          <div class="form-group">
+            <input type="text" id="fname" placeholder="Nombre completo del titular">
+          </div>
+          <div class="form-group">
+            <input type="text" id="email-field" placeholder="Correo electrónico de contacto">
+          </div>
+
+          <div class="form-group-checkbox">
+            <input type="checkbox" id="email-field"> 
+            <label for="email-field">Acepto los términos y condiciones de compra de entradas</label>
+          </div>
+
+          <div class="custom-btn" id="btn-submit-form">Comprar / Reservar</div>
+        </form>
+      </section>
+
+      <aside class="sidebar-block">
+        <div class="widget-box">
+          <h3>Promociones Destacadas</h3>
+          <ul class="sidebar-list">
+            <li><a class="fake-link" id="link-ai">Día del Espectador (Miércoles a 4,50€)</a></li>
+            <li><a class="fake-link" id="link-energy">Cine Sénior - Mayores de 65 años (2€)</a></li>
+            <li><a class="fake-link" id="link-biotech">Matinales de Fin de Semana</a></li>
+          </ul>
+        </div>
+
+        <hr class="sidebar-divider">
+
+        <div class="widget-box">
+          <h3>Filtro de Sesiones</h3>
+          <p class="filter-instruction">Para filtrar la búsqueda, utilice los controles con forma circular ubicados en el bloque de la derecha.</p>
+
+          <div class="filter-options">
+            <custom-checkbox checked="false">Mostrar solo salas con butacas libres</custom-checkbox>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- AVISO COOKIES -->
+  <div class="cookie-banner">
+    <p>Multicines Zamora utiliza cookies propias y de terceros para gestionar la venta de entradas. Al continuar acepta su uso.</p>
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <div class="footer-container">
+      
+      <div class="footer-contact-grid">
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/535/535188.png" width="20" height="20" alt="" class="contact-icon">
+          <span>CC Valderaduey, Avda. Cardenal Cisneros s/n, 49024 Zamora</span>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/159/159832.png" width="20" height="20" alt="" class="contact-icon">
+          <span>Información Taquilla: +34 980 520 111</span>
+        </div>
+        <div class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/542/542689.png" width="20" height="20" alt="" class="contact-icon">
+          <span>Atención al cliente: info@multicineszamora.es</span>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2026 Multicines Zamora S.L. Todos los derechos reservados.</p>
+      
+      <div class="social-links">
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=FB" alt=""></a>
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=TW" alt=""></a>
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=IG" alt=""></a>
+      </div>
+
+      <p class="trademark-text">Multicines Zamora® es una marca registrada de exhibición cinematográfica.<div></p></div>
+
+      <audio id="bg-audio" autoplay loop>
+        <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
