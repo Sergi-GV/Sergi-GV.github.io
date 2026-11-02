@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <title>Multicines Zamora | Cartelera y Venta de Entradas</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Clase auxiliar para ocultar etiquetas visualmente manteniendo la accesibilidad */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
 
@@ -11,12 +25,14 @@
   <header>
     <div class="header-container">
       <div class="logo-group">
-        <div class="logo-text">MULTICINES ZAMORA</div>
+        <!-- CORRECCIÓN MAUVE (Tech H42): Se convierte el nombre de la empresa en el h1 principal de la página -->
+        <h1 class="logo-text">MULTICINES ZAMORA</h1>
         <span class="sub-logo">C.C. Valderaduey — Zamora</span>
       </div>
 
       <!-- NAVEGACIÓN DESPLEGABLE -->
-      <nav class="main-nav">
+      <!-- MEJORA MAUVE (ARIA11): Se añade aria-label para identificar la región de navegación de forma clara -->
+      <nav class="main-nav" aria-label="Navegación principal">
         <ul>
           <li><a href="#">Cartelera</a></li>
           
@@ -43,7 +59,8 @@
           <li class="dropdown">
             <a href="#" class="dropbtn">Servicios ▾</a>
             <ul class="dropdown-content">
-              <li><span class="nav-item-btn" id="btn-portal">Zona Clientes</span></li>
+              <!-- CORRECCIÓN ACCESIBILIDAD: Se cambia <span> por <a> para permitir la navegación por teclado -->
+              <li><a href="#" class="nav-item-btn" id="btn-portal">Zona Clientes</a></li>
               <li><a href="#">Alquiler de Salas</a></li>
               <li><a href="#">Barra & Palomitas</a></li>
               <li><a href="#">Accesibilidad</a></li>
@@ -57,15 +74,23 @@
   </header>
 
   <!-- BARRA BÚSQUEDA Y SELECCIÓN DE DÍA -->
-  <section class="hero-campus">
+  <!-- MEJORA MAUVE (ARIA11): Se identifica la región del buscador -->
+  <section class="hero-campus" aria-label="Buscador de cartelera">
     <div class="hero-content">
       <h2>CARTELERA DE CINE EN ZAMORA</h2>
       <p class="hero-subtitle">Selecciona tu película, fecha y compra tus entradas online</p>
       
       <div class="search-box">
+        <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada con "for" al input search-input -->
+        <label for="search-input" class="sr-only">Buscar película por título</label>
         <input type="text" placeholder="Buscar película por título..." id="search-input">
-        <input type="text" placeholder="Código Promocional">
-        <button class="btn-search">Buscar</button>
+
+        <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade id al input y su etiqueta label vinculada -->
+        <label for="promo-code" class="sr-only">Código Promocional</label>
+        <input type="text" placeholder="Código Promocional" id="promo-code">
+
+        <!-- MEJORA MAUVE: Especificamos type="button" para evitar comportamiento indeterminado dentro o fuera de formularios -->
+        <button type="button" class="btn-search">Buscar</button>
       </div>
 
       <p class="search-info">
@@ -78,8 +103,16 @@
   <main class="mosaic-container">
     
     <div class="section-header">
-      <h3>Películas en Cartelera</h3>
-      <span class="results-count">Selecciona una sesión para reservar</span>
+      <div>
+        <h3>Películas en Cartelera</h3>
+        <span class="results-count">Selecciona una sesión para reservar</span>
+      </div>
+
+      <!-- MEJORA: El PDF ahora es un recurso destacado arriba en la cabecera -->
+      <a href="https://example.com/pdf" target="_blank" class="pdf-download-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" width="16" height="16" alt="Documento PDF" aria-hidden="true">
+        Descargar Cartelera PDF
+      </a>
     </div>
 
     <div class="poster-grid">
@@ -87,7 +120,8 @@
       <!-- CARTEL 1 (MOSAICO) -->
       <article class="poster-card">
         <div class="poster-wrapper">
-          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Imagen de la imagen del cartel de cine de la pelicula de ciencia ficcion">
+          <!-- MEJORA MAUVE (SC 1.1.1): Se simplifica el alt para ser descriptivo y conciso directamente sobre la película -->
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Cartel de la película Misión Interestelar">
           <span class="badge-tag">SALA 1 • 148 MIN</span>
         </div>
         
@@ -104,14 +138,17 @@
             <span class="showtime-btn">22:30</span>
           </div>
 
-          <a href="#" class="link-primary">Read more</a>
+          <!-- CORRECCIÓN: Traducción al español y aria-label específico para la película -->
+          <a href="#" class="link-primary" aria-label="Más información sobre Misión Interestelar">Más información</a>
         </div>
       </article>
 
       <!-- CARTEL 2 (MOSAICO) -->
       <article class="poster-card">
         <div class="poster-wrapper">
-          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80" class="card-img" alt="">
+          <!-- MEJORA MAUVE: Se añade texto descriptivo en lugar de alt="" vacío para identificar la imagen -->
+          <!-- MEJORA MAUVE (SC 1.1.1): Texto alternativo conciso especificando la película en cuestión -->
+          <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Cartel de la película El Misterio de la Casa Sombría">
           <span class="badge-tag">SALA 3 • 112 MIN</span>
         </div>
 
@@ -128,31 +165,16 @@
             <span class="showtime-btn">22:45</span>
           </div>
 
-          <a href="#" class="link-primary">Read more</a>
+          <!-- CORRECCIÓN: Traducción al español y aria-label específico -->
+          <a href="#" class="link-primary" aria-label="Más información sobre El Misterio de la Casa Sombría">Más información</a>
         </div>
       </article>
 
-      <!-- CARTEL 3 (PDF / PROGRAMACIÓN EN MOSAICO) -->
-      <article class="poster-card special-card">
-        <div class="poster-wrapper pdf-wrapper">
-          <div class="pdf-indicator">
-            <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" width="24" height="24" alt="Icono de PDF"> 
-            <span>PROGRAMACIÓN PDF</span>
-          </div>
-        </div>
-
-        <div class="poster-info">
-          <h4 class="card-title card-title-spaced">Cartelera Completa de la Semana</h4>
-          <p class="card-authors">Todos los horarios y próximas novedades en un archivo descargable.</p>
-
-          <a href="https://example.com/pdf" target="_blank" class="link-primary">Download full text PDF</a>
-        </div>
-      </article>
-
-      <!-- CARTEL 4 (MOSAICO) -->
+      <!-- CARTEL 3 (MOSAICO) -->
       <article class="poster-card">
         <div class="poster-wrapper">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Proyector de cine enfocado a la pantalla gigante del cine de Zamora">
+          <!-- MEJORA MAUVE (SC 1.1.1): Se sustituye texto genérico por descripción concisa de la película -->
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Cartel de la película Cuestión de Honor">
           <span class="badge-tag">SALA 5 • 125 MIN</span>
         </div>
 
@@ -169,14 +191,16 @@
             <span class="showtime-btn">21:50</span>
           </div>
 
-          <a href="#" class="link-primary">Ver plan de estudios</a>
+          <!-- CORRECCIÓN: Texto adaptado con aria-label descriptivo -->
+          <a href="#" class="link-primary" aria-label="Más información sobre Cuestión de Honor">Más información</a>
         </div>
       </article>
 
-      <!-- CARTEL 5 (MOSAICO) -->
+      <!-- CARTEL 4 (MOSAICO) -->
       <article class="poster-card">
         <div class="poster-wrapper">
-          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Butacas rojas del auditorio principal de los multicines">
+          <!-- MEJORA MAUVE (SC 1.1.1): Se ajusta el atributo alt al título de la película correspondiente -->
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Cartel de la película Bajo el Sol de Zamora">
           <span class="badge-tag">SALA 2 • 105 MIN</span>
         </div>
 
@@ -192,14 +216,16 @@
             <span class="showtime-btn">20:00</span>
           </div>
 
-          <a href="#" class="link-primary">Consultar guías docentes</a>
+          <!-- CORRECCIÓN: Texto adaptado con aria-label descriptivo -->
+          <a href="#" class="link-primary" aria-label="Más información sobre Bajo el Sol de Zamora">Más información</a>
         </div>
       </article>
 
-      <!-- CARTEL 6 (MOSAICO) -->
+      <!-- CARTEL 5 (MOSAICO) -->
       <article class="poster-card">
         <div class="poster-wrapper">
-          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Entradas de cine y palomitas sobre el mostrador de recepción">
+          <!-- MEJORA MAUVE (SC 1.1.1): Texto alternativo ajustado y conciso -->
+          <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=400&q=80" class="card-img" alt="Cartel de la película Casablanca">
           <span class="badge-tag">SALA 4 • VOSE</span>
         </div>
 
@@ -214,7 +240,8 @@
             <span class="showtime-btn">20:15 (VOSE)</span>
           </div>
 
-          <a href="#" class="link-primary">Solicitar admisión</a>
+          <!-- CORRECCIÓN: Texto adaptado con aria-label descriptivo -->
+          <a href="#" class="link-primary" aria-label="Más información sobre Casablanca">Más información</a>
         </div>
       </article>
 
@@ -224,35 +251,49 @@
     <div class="mosaic-footer-grid">
       
       <section class="newsletter-box">
-        <h6>Venta de Entradas y Boletín de Estrenos</h6>
+
+        <!-- CORRECCIÓN (Check 40): Se cambia <h6> por <h3> para mantener una jerarquía correcta tras los <h4> de la cuadrícula -->
+        <h3>Venta de Entradas y Boletín de Estrenos</h3>
         <p>Recibe la cartelera semanal en tu correo y asegura tus butacas preferidas.</p>
         
         <form id="newsletter-form">
-          <p><span class="required-mark">*</span> Campos obligatorios:</p>
+          <!-- MEJORA MAUVE (ARIA19): Se añade aria-live="polite" por si se insertan alertas o mensajes dinámicos -->
+          <p aria-live="polite"><span class="required-mark">*</span> Campos obligatorios:</p>
 
           <div class="form-group">
-            <input type="text" id="fname" placeholder="Nombre completo del titular">
+            <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada a fname -->
+            <label for="fname" class="sr-only">Nombre completo del titular</label>
+            <!-- MEJORA MAUVE (H98): Se añade autocomplete="name" para facilitar el autorrellenado -->
+            <input type="text" id="fname" placeholder="Nombre completo del titular" autocomplete="name">
           </div>
           <div class="form-group">
-            <input type="text" id="email-field" placeholder="Correo electrónico de contacto">
+            <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada a email-field -->
+            <label for="email-field" class="sr-only">Correo electrónico de contacto</label>
+            <!-- MEJORA MAUVE (H98): Se cambia type a "email" y se añade autocomplete="email" -->
+            <input type="email" id="email-field" placeholder="Correo electrónico de contacto" autocomplete="email">
           </div>
 
           <div class="form-group-checkbox">
-            <input type="checkbox" id="email-field"> 
-            <label for="email-field">Acepto los términos y condiciones de compra de entradas</label>
+            <!-- CORRECCIÓN (Check 185): Se renombró el id a "terms-conditions" para eliminar la duplicación de email-field -->
+            <input type="checkbox" id="terms-conditions">
+            <!-- CORRECCIÓN (Check 185): Se actualizó el atributo for para coincidir con el nuevo id único "terms-conditions" -->
+            <label for="terms-conditions">Acepto los términos y condiciones de compra de entradas</label>
           </div>
 
-          <div class="custom-btn" id="btn-submit-form">Comprar / Reservar</div>
+          <!-- MEJORA MAUVE (H32): Se sustituye el <div> por un elemento <button type="submit"> para permitir el envío por teclado -->
+          <button type="submit" class="custom-btn" id="btn-submit-form">Comprar / Reservar</button>
         </form>
       </section>
 
-      <aside class="sidebar-block">
+      <!-- MEJORA MAUVE (ARIA11): Se añade aria-label al bloque aside -->
+      <aside class="sidebar-block" aria-label="Información complementaria y filtros">
         <div class="widget-box">
           <h3>Promociones Destacadas</h3>
           <ul class="sidebar-list">
-            <li><a class="fake-link" id="link-ai">Día del Espectador (Miércoles a 4,50€)</a></li>
-            <li><a class="fake-link" id="link-energy">Cine Sénior - Mayores de 65 años (2€)</a></li>
-            <li><a class="fake-link" id="link-biotech">Matinales de Fin de Semana</a></li>
+            <!-- MEJORA: Se añade atributo href a los enlaces para que sean navegables por teclado -->
+            <li><a class="fake-link" id="link-ai" href="#">Día del Espectador (Miércoles a 4,50€)</a></li>
+            <li><a class="fake-link" id="link-energy" href="#">Cine Sénior - Mayores de 65 años (2€)</a></li>
+            <li><a class="fake-link" id="link-biotech" href="#">Matinales de Fin de Semana</a></li>
           </ul>
         </div>
 
@@ -273,7 +314,8 @@
   </main>
 
   <!-- AVISO COOKIES -->
-  <div class="cookie-banner">
+  <!-- MEJORA MAUVE (ARIA11): Se le asigna rol y etiqueta descriptiva de región -->
+  <div class="cookie-banner" role="region" aria-label="Aviso de cookies">
     <p>Multicines Zamora utiliza cookies propias y de terceros para gestionar la venta de entradas. Al continuar acepta su uso.</p>
   </div>
 
@@ -299,14 +341,20 @@
       <p class="footer-copy">© 2026 Multicines Zamora S.L. Todos los derechos reservados.</p>
       
       <div class="social-links">
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=FB" alt=""></a>
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=TW" alt=""></a>
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=IG" alt=""></a>
+        <!-- CORRECCIÓN (Check 7 y Check 174): Se añadió texto alt explicativo a cada imagen dentro del enlace -->
+         <!-- MEJORA MAUVE (SC 2.5.3 - Label in Name): Se añade aria-label="Facebook de Multicines Zamora" idéntico al alt de la imagen -->
+        <a href="#" aria-label="Facebook de Multicines Zamora"><img src="https://via.placeholder.com/32x32?text=FB" alt="Facebook de Multicines Zamora"></a>
+        <!-- MEJORA MAUVE (SC 2.5.3 - Label in Name): Se añade aria-label="Twitter de Multicines Zamora" idéntico al alt de la imagen -->
+        <a href="#" aria-label="Twitter de Multicines Zamora"><img src="https://via.placeholder.com/32x32?text=TW" alt="Twitter de Multicines Zamora"></a>
+        <!-- MEJORA MAUVE (SC 2.5.3 - Label in Name): Se añade aria-label="Instagram de Multicines Zamora" idéntico al alt de la imagen -->
+        <a href="#" aria-label="Instagram de Multicines Zamora"><img src="https://via.placeholder.com/32x32?text=IG" alt="Instagram de Multicines Zamora"></a>
       </div>
 
-      <p class="trademark-text">Multicines Zamora® es una marca registrada de exhibición cinematográfica.<div></p></div>
+      <!-- MEJORA MAUVE: Se elimina la etiqueta vacía '<div><p></p></div>' redundante que estaba en esta línea -->
+      <p class="trademark-text">Multicines Zamora® es una marca registrada de exhibición cinematográfica.</p>
 
-      <audio id="bg-audio" autoplay loop>
+      <!-- MEJORA MAUVE (G158): Se remueven 'autoplay' y 'loop' y se añade 'controls' para evitar audio no solicitado -->
+      <audio id="bg-audio" controls>
         <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
       </audio>
     </div>

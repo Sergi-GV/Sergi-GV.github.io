@@ -5,9 +5,10 @@ body {
   background-color: #0b0b0b;
   color: #e0e0e0;
 }
-
+/* CORRECCIÓN (WCAG 2.4.7 Focus Visible): Se elimina 'outline: none !important' y se asegura un indicador de foco visible al navegar por teclado */
 *:focus {
-  outline: none !important;
+  outline: 3px solid #ff4d4d !important;
+  outline-offset: 2px !important;
 }
 
 /* CABECERA */
@@ -30,14 +31,16 @@ header {
 .logo-text {
   font-size: 28px;
   font-weight: 900;
-  color: #e50914;
+  /* CORRECCIÓN (WCAG 1.4.3): Tono de rojo más claro para cumplir con el contraste sobre fondo negro */
+  color: #ff4d4d;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
 .sub-logo {
   font-size: 11px;
-  color: #8c8c8c;
+  /* CORRECCIÓN (WCAG 1.4.3): Se aclara el gris para mejorar el contraste */
+  color: #b3b3b3;
 }
 
 .main-nav ul {
@@ -56,7 +59,8 @@ header {
   padding: 8px 12px;
   display: block;
 }
-
+/* --- CÓDIGO ANTERIOR A REEMPLAZAR --- */
+/*
 .dropdown { position: relative; }
 
 .dropdown-content {
@@ -84,6 +88,62 @@ header {
 }
 
 .dropdown:hover .dropdown-content { display: block; }
+*/
+
+/* --- SOLUCIÓN AL MENÚ DESPLEGABLE HORIZONTAL --- */
+
+/* 1. Marco de referencia en cada ítem del menú */
+.main-nav > ul > li.dropdown { 
+  position: relative; 
+}
+
+/* 2. Submenús Ocultos por defecto */
+.dropdown-content {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: #1a1a1a;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  border: 1px solid #444;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+}
+
+/* 3. Estructura vertical de cada opción dentro del desplegable */
+.dropdown-content li {
+  display: block;
+  width: 100%;
+}
+
+.dropdown-content a, 
+.dropdown-content .nav-item-btn {
+  color: #ffffff;
+  padding: 12px 16px;
+  font-weight: normal;
+  border-bottom: 1px solid #282828;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.dropdown-content a:hover, 
+.dropdown-content .nav-item-btn:hover,
+.dropdown-content a:focus {
+  background-color: #e50914;
+  color: #ffffff;
+}
+
+/* 4. Abrir ÚNICAMENTE el submenú hijo del 'li' específico sobre el que está el ratón o el foco */
+.main-nav > ul > li.dropdown:hover > .dropdown-content,
+.main-nav > ul > li.dropdown:focus-within > .dropdown-content { 
+  display: flex !important; 
+}
 
 /* HERO BANNER */
 .hero-campus {
@@ -107,7 +167,8 @@ header {
 
 .hero-subtitle {
   margin: 4px 0 16px 0;
-  color: #e50914;
+  /* CORRECCIÓN (WCAG 1.4.3): Se ajusta el rojo a un tono brillante (#ff4d4d) de mayor visibilidad */
+  color: #ff4d4d;
   font-size: 14px;
   font-weight: 600;
 }
@@ -127,6 +188,11 @@ header {
   font-size: 14px;
 }
 
+/* CORRECCIÓN (WCAG 1.4.3): Estilo para el texto placeholder de los campos de entrada */
+.search-box input::placeholder, .form-group input::placeholder {
+  color: #cccccc;
+}
+
 .search-box input:first-child { flex: 3; }
 .search-box input:nth-child(2) { flex: 1; }
 
@@ -144,7 +210,8 @@ header {
 .search-info {
   margin-top: 10px;
   font-size: 12px;
-  color: #8c8c8c;
+  /* CORRECCIÓN: Se aclara de #8c8c8c a #b3b3b3 para legibilidad */
+  color: #b3b3b3;
 }
 
 /* MAQUETACIÓN EN MOSAICO (GRID DE PÓSTERES) */
@@ -173,6 +240,32 @@ header {
 .results-count {
   font-size: 13px;
   color: #8c8c8c;
+}
+
+/* Botón de descarga de PDF */
+.pdf-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1f1f1f;
+  color: #ff6b6b;
+  border: 1px solid #ff4d4d;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+}
+
+.pdf-download-btn:hover,
+.pdf-download-btn:focus-visible {
+  background-color: #ff4d4d;
+  color: #ffffff;
+}
+
+.pdf-download-btn img {
+  filter: brightness(0) invert(1);
 }
 
 .poster-grid {
@@ -247,7 +340,8 @@ header {
 .card-authors {
   margin: 0 0 12px 0;
   font-size: 12px;
-  color: #888;
+  /* CORRECCIÓN: Tono aclarado para contraste */
+  color: #b3b3b3;
 }
 
 .showtimes-box {
@@ -259,7 +353,8 @@ header {
 
 .showtime-btn {
   background: #252525;
-  color: #e50914;
+  /* CORRECCIÓN (WCAG 1.4.3): Texto en blanco y fondo con borde rojo claro */
+  color: #ffffff;
   border: 1px solid #e50914;
   padding: 4px 8px;
   font-size: 11px;
@@ -268,7 +363,8 @@ header {
 }
 
 .link-primary {
-  color: #e50914;
+  /* CORRECCIÓN: Rojo pastel de alto contraste (#ff6b6b) y subrayado para identificar el enlace */
+  color: #ff6b6b;
   font-weight: bold;
   text-decoration: none;
   font-size: 12px;
@@ -369,7 +465,8 @@ header {
 
 .fake-link {
   cursor: pointer;
-  color: #e50914;
+  /* CORRECCIÓN: Cambio de color a #ff6b6b de alto contraste sobre fondo negro */
+  color: #ff6b6b;
   text-decoration: underline;
   font-size: 13px;
 }
@@ -403,7 +500,7 @@ header {
 footer {
   background: #080808;
   color: #777;
-  padding: 40px 0 25px 0;
+  padding: 40px 0 70px 0; /* Aumentamos el padding inferior a 70px */
   margin-top: 50px;
   font-size: 12px;
   border-top: 1px solid #222;
@@ -453,4 +550,10 @@ footer {
 .open-access { background-color: #2e7d32; }
 .restricted { background-color: #c62828; }
 
-#bg-audio { display: none; }
+/* CORRECCIÓN: Se visibiliza el control de audio para permitir pausa/reproducción por el usuario (WCAG 1.4.2 Audio Control) */
+/* Estilo para los controles del audio */
+#bg-audio { 
+  display: block; 
+  margin: 20px auto 10px auto;
+  max-width: 300px;
+}
