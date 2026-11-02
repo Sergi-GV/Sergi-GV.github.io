@@ -11,13 +11,12 @@
   <header>
     <div class="header-container">
       <div class="logo-group">
-        <!-- CORRECCIÓN MAUVE (Tech H42): Se convierte el nombre de la empresa en el h1 principal de la página -->
-        <h1 class="logo-text">MULTICINES ZAMORA</h1>
+        <div class="logo-text">MULTICINES ZAMORA</div>
         <span class="sub-logo">C.C. Valderaduey — Zamora</span>
       </div>
 
       <!-- NAVEGACIÓN DESPLEGABLE -->
-      <nav class="main-nav" >
+      <nav class="main-nav">
         <ul>
           <li><a href="#">Cartelera</a></li>
           
@@ -64,13 +63,8 @@
       <p class="hero-subtitle">Selecciona tu película, fecha y compra tus entradas online</p>
       
       <div class="search-box">
-        <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada con "for" al input search-input -->
-        <label for="search-input">Buscar película por título</label>
         <input type="text" placeholder="Buscar película por título..." id="search-input">
-
-        <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade id al input y su etiqueta label vinculada -->
-        <label for="promo-code">Código Promocional</label>
-        <input type="text" placeholder="Código Promocional" id="promo-code">
+        <input type="text" placeholder="Código Promocional">
         <button class="btn-search">Buscar</button>
       </div>
 
@@ -230,30 +224,22 @@
     <div class="mosaic-footer-grid">
       
       <section class="newsletter-box">
-
-        <!-- CORRECCIÓN (Check 40): Se cambia <h6> por <h3> para mantener una jerarquía correcta tras los <h4> de la cuadrícula -->
-        <h3>Venta de Entradas y Boletín de Estrenos</h3>
+        <h6>Venta de Entradas y Boletín de Estrenos</h6>
         <p>Recibe la cartelera semanal en tu correo y asegura tus butacas preferidas.</p>
         
         <form id="newsletter-form">
           <p><span class="required-mark">*</span> Campos obligatorios:</p>
 
           <div class="form-group">
-            <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada a fname -->
-            <label for="fname">Nombre completo del titular</label>
             <input type="text" id="fname" placeholder="Nombre completo del titular">
           </div>
           <div class="form-group">
-            <!-- CORRECCIÓN (Check 213, 57 y 188): Se añade etiqueta label vinculada a email-field -->
-            <label for="email-field">Correo electrónico de contacto</label>
             <input type="text" id="email-field" placeholder="Correo electrónico de contacto">
           </div>
 
           <div class="form-group-checkbox">
-            <!-- CORRECCIÓN (Check 185): Se renombró el id a "terms-conditions" para eliminar la duplicación de email-field -->
-            <input type="checkbox" id="terms-conditions">
-            <!-- CORRECCIÓN (Check 185): Se actualizó el atributo for para coincidir con el nuevo id único "terms-conditions" -->
-            <label for="terms-conditions">Acepto los términos y condiciones de compra de entradas</label>
+            <input type="checkbox" id="email-field"> 
+            <label for="email-field">Acepto los términos y condiciones de compra de entradas</label>
           </div>
 
           <div class="custom-btn" id="btn-submit-form">Comprar / Reservar</div>
@@ -313,10 +299,9 @@
       <p class="footer-copy">© 2026 Multicines Zamora S.L. Todos los derechos reservados.</p>
       
       <div class="social-links">
-        <!-- CORRECCIÓN (Check 7 y Check 174): Se añadió texto alt explicativo a cada imagen dentro del enlace -->
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=FB" alt="Facebook de Multicines Zamora"></a>
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=TW" alt="Twitter de Multicines Zamora"></a>
-        <a href="#"><img src="https://via.placeholder.com/32x32?text=IG" alt="Instagram de Multicines Zamora"></a>
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=FB" alt=""></a>
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=TW" alt=""></a>
+        <a href="#"><img src="https://via.placeholder.com/32x32?text=IG" alt=""></a>
       </div>
 
       <p class="trademark-text">Multicines Zamora® es una marca registrada de exhibición cinematográfica.<div></p></div>
